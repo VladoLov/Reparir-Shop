@@ -1,6 +1,7 @@
 import { getCustomer } from "@/lib/queries/getCustomer";
 import { getTicket } from "@/lib/queries/getTicket";
 import BackButton from "@/components/BackButton";
+import TicketForm from "./TicketForm";
 
 export default async function TicketFormAge({
   searchParams,
@@ -15,8 +16,8 @@ export default async function TicketFormAge({
         <>
           <h2 className="text-2xl mb-2">
             Ticket ID or Customer ID ${customerId} require to load ticket form!
-            <BackButton title="Go Back" variant="default" />
           </h2>
+          <BackButton title="Go Back" variant="default" />
         </>
       );
     }
@@ -29,8 +30,8 @@ export default async function TicketFormAge({
           <>
             <h2 className="text-2xl mb-2">
               Customer ID ${customerId} not found!
-              <BackButton title="Go Back" variant="default" />
             </h2>
+            <BackButton title="Go Back" variant="default" />
           </>
         );
       }
@@ -39,14 +40,16 @@ export default async function TicketFormAge({
           <>
             <h2 className="text-2xl mb-2">
               Customer ID ${customerId} is not active!
-              <BackButton title="Go Back" variant="default" />
             </h2>
+
+            <BackButton title="Go Back" variant="default" />
           </>
         );
       }
 
       //return ticket form
       console.log(customer);
+      return <TicketForm customer={customer} />;
     }
     //edit ticket form
     if (ticketId) {
@@ -54,10 +57,8 @@ export default async function TicketFormAge({
       if (!ticket) {
         return (
           <>
-            <h2 className="text-2xl mb-2">
-              Ticket ID ${ticketId} not found!
-              <BackButton title="Go Back" variant="default" />
-            </h2>
+            <h2 className="text-2xl mb-2">Ticket ID ${ticketId} not found!</h2>
+            <BackButton title="Go Back" variant="default" />
           </>
         );
       }
@@ -66,6 +67,7 @@ export default async function TicketFormAge({
       // return ticket form
       console.log("ticket: ", ticket);
       console.log("customer: ", customer);
+      return <TicketForm customer={customer} ticket={ticket} />;
     }
   } catch (err) {
     if (err instanceof Error) {
