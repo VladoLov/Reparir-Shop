@@ -16,7 +16,7 @@ export const insertCustomerSchema = createInsertSchema(customers, {
     ),
   phone: (schema) =>
     schema.phone.regex(
-      /^\d{3}-\d{3}-\d{4}&/,
+      /^\d{3}-\d{3}-\d{4}$/,
       "Invalid phone number format. Use XXX-XXX-XXXX"
     ),
 });
