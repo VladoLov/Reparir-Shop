@@ -39,7 +39,7 @@ export function InputWithLabel<S>({
               id={nameInSchema}
               className={`w-full max-w-xs disabled:opacity-75 ${
                 props.disabled
-                  ? "disabled:text-blue-500 dark:disabled:text-green-500"
+                  ? "disabled:text-blue-500 dark:disabled:text-yellow-300"
                   : ""
               } ${className}`}
               {...props}
