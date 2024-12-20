@@ -21,7 +21,7 @@ import { useAction } from "next-safe-action/hooks";
 import { saveTicketAction } from "@/app/actions/saveTicketAction";
 import { useToast } from "@/hooks/use-toast";
 import { LoaderCircle } from "lucide-react";
-import { DispplayServerActionResponse } from "@/components/DisplayedServerActionResponse";
+import { DisplayServerActionResponse } from "@/components/DisplayServerActionsResponse";
 
 type Props = {
   customer: selectCustomerSchemaType;
@@ -88,7 +88,7 @@ export default function TicketForm({
 
   return (
     <div className="flex flex-col gap-1 sm:px-8">
-      <DispplayServerActionResponse result={saveResult} />
+      <DisplayServerActionResponse result={saveResult} />
       <div>
         <h2 className="text-2xl font-bold">
           {ticket?.id && isEditable
