@@ -22,7 +22,8 @@ export async function getCustomerSearchResults(searchText: string) {
           customers.lastName
         })) LIKE ${`${searchText.toLowerCase().replace(" ", "%")}%`}`
       )
-    );
+    )
+    .orderBy(customers.lastName);
   return results;
 }
 // sql lower have longer search time in ms, almost double
