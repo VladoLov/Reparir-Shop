@@ -14,13 +14,13 @@ type Props = {
     | "secondary"
     | "ghost"
     | "link"
-    | "null"
-    | "undefined";
+    | undefined
+    | null;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function BackButton({
   title,
-  variant,
+  variant = "default",
   className,
   ...props
 }: Props) {
@@ -31,6 +31,7 @@ export default function BackButton({
       className={className}
       onClick={() => router.back()}
       title={title}
+      {...props}
     >
       {title}
     </Button>

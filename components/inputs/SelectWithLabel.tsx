@@ -34,7 +34,6 @@ export function SelectWithLabel<S>({
   nameInSchema,
   data,
   className,
-  ...props
 }: Props<S>) {
   const form = useFormContext();
 
