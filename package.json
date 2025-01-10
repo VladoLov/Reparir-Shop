@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18.0.0",
+    "@types/react": "^19.0.0",
     "@types/react-dom": "",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.27.0",
